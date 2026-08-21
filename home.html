@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f8f2e8;
+        color: #3f2c23;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+      }
+      .navber {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(97, 62, 37, 0.12);
+      }
+      .nav-logo img {
+        max-height: 70px;
+        width: auto;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 28px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .nav-links a {
+        color: #5e3b2f;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+      .nav-links a:hover {
+        color: #b25c4b;
+        transform: translateY(-1px);
+      }
+      .cart-link {
+        color: #5e3b2f;
+        font-size: 1.2rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(94, 59, 47, 0.18);
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .cart-link:hover {
+        background: rgba(178, 92, 75, 0.08);
+        color: #b25c4b;
+      }
+      .cart-badge {
+        min-width: 20px;
+        height: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: #b25c4b;
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0 6px;
+      }
+      .hero {
+        position: relative;
+        margin: 24px 0 42px;
+        min-height: 56vh;
+        background-image: linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)), url(269019777736972984.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 28px;
+        box-shadow: 0 18px 60px rgba(95, 54, 32, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(248,242,232,0.1), rgba(94,59,47,0.35));
+      }
+      .hero p {
+        position: relative;
+        margin: 0;
+        color: #fff;
+        font-size: clamp(3rem, 6vw, 5.4rem);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        text-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      }
+      .chefs-choice {
+        margin-top: 18px;
+      }
+      .chefs-choice h1 {
+        font-size: 2.4rem;
+        margin: 0 0 8px;
+        letter-spacing: 0.06em;
+      }
+      .chefs-choice p {
+        margin: 0 0 24px;
+        color: #7a5a48;
+        max-width: 640px;
+        line-height: 1.65;
+      }
+      .chef-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 16px 36px rgba(95, 54, 32, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .card-content {
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+      }
+      .card-price {
+        color: #b25c4b;
+        font-weight: 700;
+      }
+      .order-btn {
+        margin-top: auto;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 999px;
+        background: #b25c4b;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 700;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .order-btn:hover {
+        background: #cf7567;
+        transform: translateY(-1px);
+      }
+      .rating i{cursor:pointer}
+      .footer-note {
+        margin-top: 32px;
+        padding: 20px 0;
+        text-align: center;
+        color: #6c4c3a;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 760px) {
+        .nav-links {
+          gap: 14px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .container {
+          padding: 0 16px 32px;
+        }
+      }
+    </style>
+</head>
+<body>
+        <div class="container">
+          <nav class="navber">
+          <div class="nav-logo"><img src="IMG_0373.PNG" alt="" width="400px" height=""></div>
+        <ul class="nav-links">
+          <li><a href="recipes.html">recipes</a></li>
+          <li><a href="cakes.html">cakes</a></li>
+          <li><a href="pastries.html">pastries</a></li>
+          <li><a href="drinks.html">drinks/smoothies</a></li>
+          <li><a class="cart-link" href="cart.html"><i class="fas fa-shopping-cart"></i>&nbsp;Cart<span class="cart-badge">0</span></a></li>
+          <li><a class="cart-link" href="profile.html"><i class="fas fa-user-circle"></i>&nbsp;Profile</a></li>
+        </ul>
+      </nav>
+      <div class="hero">
+        <p>discover the bake</p>
+      </div>
+      <div class="chefs-choice">
+        <h1>chef's pick</h1>
+        <p>Carefully selected sweets and cakes for your next celebration. Each flavor is designed to delight with premium ingredients and beautiful presentation.</p>
+        <div class="chef-grid">
+          <article class="card">
+            <img src="IMG_0383.JPG" alt="2 in 1 chocolate and red velvet cake">
+            <div class="card-content">
+              <h2 class="card-title">2-in-1 Chocolate & Red Velvet</h2>
+              <div class="card-price">price: 5,800</div>
+              <button class="order-btn">Order</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="IMG_0398.JPG" alt="Mini chocolate cake">
+            <div class="card-content">
+              <h2 class="card-title">Mini Chocolate Cake</h2>
+              <div class="card-price">price: 7,500</div>
+              <button class="order-btn">Order</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="IMG_0418.JPG" alt="Lemon cheese cake">
+            <div class="card-content">
+              <h2 class="card-title">Lemon Cheesecake Box</h2>
+              <div class="card-price">price: 15,000 per box of six</div>
+              <button class="order-btn">Order</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="IMG_0399.JPG" alt="Macarons box of six">
+            <div class="card-content">
+              <h2 class="card-title">Macaron Box of Six</h2>
+              <div class="card-price">price: 8,000</div>
+              <button class="order-btn">Order</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <script>
+       // check if the page is being reloaded (refreshed)
+      if (performance.getEntriesByType("navigation")[0].type === "reload") {
+        // redirect back to your home screen file
+        window.location.href = "home.html";
+      }
+
+      // Shared cart logic: store full cart item objects in localStorage and update badges
+      (function(){
+        function getCartItems(){
+          try { return JSON.parse(localStorage.getItem('cartItems') || '[]'); }
+          catch(e){ return []; }
+        }
+        function saveCartItems(items){
+          localStorage.setItem('cartItems', JSON.stringify(items));
+          var count = items.reduce(function(sum,item){ return sum + item.qty; }, 0);
+          localStorage.setItem('cartCount', count);
+          localStorage.setItem('cartTotal', items.reduce(function(sum,item){ return sum + item.price * item.qty; }, 0));
+        }
+        function parsePrice(text){
+          var digits = (text || '').replace(/[^0-9]/g, '');
+          return digits ? parseInt(digits, 10) : 0;
+        }
+        function makeItemId(title, price){
+          return (title || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + price;
+        }
+        function itemDataFromCard(card){
+          var image = card.querySelector('img');
+          var title = '';
+          var priceText = '';
+          var titleElement = card.querySelector('.card-title, h2, h3, .title, span');
+          if(titleElement) title = titleElement.textContent.trim();
+          var priceElement = card.querySelector('.card-price, .price, [class*=price]');
+          if(priceElement) priceText = priceElement.textContent.trim();
+          else {
+            var spans = card.querySelectorAll('span');
+            if(spans.length){ title = title || spans[0].textContent.trim(); priceText = spans[spans.length-1].textContent.trim(); }
+          }
+          var price = parsePrice(priceText);
+          return { id: makeItemId(title, price), title: title || 'Delicious treat', price: price, image: image ? image.getAttribute('src') : '', qty: 1 };
+        }
+        function updateBadges(){
+          var count = getCartItems().reduce(function(sum,item){ return sum + item.qty; }, 0);
+          document.querySelectorAll('.cart-badge').forEach(function(b){ b.textContent = count; });
+        }
+        function addItemToCart(item){
+          var items = getCartItems();
+          var existing = items.find(function(entry){ return entry.id === item.id; });
+          if(existing){ existing.qty += 1; }
+          else { items.push(item); }
+          saveCartItems(items);
+          updateBadges();
+        }
+        function bindOrderButton(btn){
+          btn.type = 'button';
+          btn.addEventListener('click', function(){
+            var card = btn.closest('article, .cake-item, .pastry-item, .drink-item, .card, .card-item');
+            if(!card) return;
+            addItemToCart(itemDataFromCard(card));
+          });
+        }
+        document.querySelectorAll('.order-btn').forEach(bindOrderButton);
+        document.querySelectorAll('.card, .cake-item, .pastry-item, .drink-item, article').forEach(function(item){
+          if(!item.querySelector('.order-btn')){
+            var button = document.createElement('button');
+            button.className = 'order-btn';
+            button.textContent = 'Order';
+            bindOrderButton(button);
+            item.appendChild(button);
+          }
+        });
+        updateBadges();
+        window.addEventListener('storage', function(e){ if(e.key === 'cartItems' || e.key === 'cartCount'){ updateBadges(); } });
+      })();
+
+      // Interactive ratings
+      (function(){
+        function setStars(container, rating){
+          var stars = container.querySelectorAll('i');
+          stars.forEach(function(star, i){ if(i < rating){ star.classList.remove('fa-regular'); star.classList.add('fa-solid'); } else { star.classList.remove('fa-solid'); star.classList.add('fa-regular'); } });
+        }
+        var page = location.pathname.split('/').pop() || 'home.html';
+        document.querySelectorAll('.rating').forEach(function(container, idx){
+          var key = 'rating:' + page + ':' + idx;
+          var stored = parseInt(localStorage.getItem(key),10) || 0;
+          setStars(container, stored);
+          container.querySelectorAll('i').forEach(function(star, sidx){
+            star.addEventListener('click', function(){ localStorage.setItem(key, sidx+1); setStars(container, sidx+1); });
+            star.addEventListener('mouseover', function(){ setStars(container, sidx+1); });
+            star.addEventListener('mouseout', function(){ var cur = parseInt(localStorage.getItem(key),10) || 0; setStars(container, cur); });
+          });
+        });
+        window.addEventListener('storage', function(e){ if(e.key && e.key.indexOf('rating:')===0){ var parts=e.key.split(':'); var pageName=parts[1]; if(pageName===page){ var idx=parseInt(parts[2],10); var container=document.querySelectorAll('.rating')[idx]; if(container) setStars(container, parseInt(e.newValue,10)||0); } }});
+      })();
+    </script>
+</body>
+</html>

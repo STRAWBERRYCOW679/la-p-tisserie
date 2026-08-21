@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes & Pastries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f2ec;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+         h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #6b2e2e;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #6b2e2e;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: #fff;
+            border: 1px solid #d7c7b4;
+            transition: background 0.2s ease;
+        }
+        .nav-links a:hover {
+            background: #f3e5d3;
+        }
+        .cart-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid #d7c7d4;
+            background: #fff;
+        }
+        .cart-badge {
+            min-width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: #a63232;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0 6px;
+        }
+        .patry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+        .pastry-item,
+        .cake-item {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .pastry-item img,
+        .cake-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+        .pastry-item span,
+        .cake-item span {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .rating {
+            margin-top: 10px;
+            color: #d29434;
+            font-size: 1.1rem;
+            width: 100%;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+        }
+        .rating i {
+            margin: 0 2px;
+            cursor: pointer;
+        }
+        .profile-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #d7c7b4;
+            background: #fff;
+            text-decoration: none;
+            color: #6b2e2e;
+            transition: background 0.2s ease;
+        }
+        .profile-link:hover {
+            background: #f3e5d3;
+        }
+        .order-btn {
+            margin-top: 14px;
+            padding: 10px 16px;
+            background: #a63232;
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.2s ease;
+        }
+        .order-btn:hover {
+            background: #c54242;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+        <div class="hero">
+             <h1>drinks/smoothies</h1>
+          <ul class="nav-links">
+          <li><a href="recipes.html">recipes</a></li>
+          <li><a href="home.html">home</a></li>
+          <li><a href="cakes.html">cakes</a></li>
+          <li><a href="pastries.html">pastries</a></li>
+          <li><a class="cart-link" href="cart.html"><span>🛒</span>Cart <span class="cart-badge">0</span></a></li>
+        </ul>
+        </div>
+        <div class="patry-grid">
+        <div class="pastry-item">
+    <img src="IMG_0404.JPG" alt="" >
+    <span>pineapple cocktail</span>
+    <span>price:5,000</span>
+      <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake cake-item">
+    <img src="IMG_0405.JPG" alt="" >
+    <span>strawberry milkshake with whipped cream</span>
+    <span>price:5,000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0406.JPG" alt="" >
+    <span> strawberry and banana smoothie</span>
+    <span>price:4,000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0407.JPG" alt="" >
+    <span>blueberry and raspberry smoothie</span>
+    <span>price:4000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="I just know this tasted like summer and happiness 😭🍓🍋.jpg" alt="" >
+    <span> strawberrey lemonade</span>
+     <span>price:5,400</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+     </div>
+     <div class="cake-item">
+    <img src="28077197672559783 (1).jpg" alt="" >
+    <span>watermelon and lime slushie </span>
+     <span>price:6,000</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+     </div>
+     <div class="cake-item">
+    <img src="1119918632363677587.jpg" alt="" >
+    <span>mango puree</span>
+     <span>price:5,500</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+     </div>
+     <div class="cake-item">
+    <img src="Strawberry Protein Smoothie for Weight Loss (Creamy, High Protein) (1).jpg" alt="" >
+    <span>strawberry protein smoothie</span>
+     <span>price:7,000</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+     </div>
+    <div class="cake-item">
+    <img src="Strawberry Milkshake Dreams 🍓🥤 (1).jpg" alt="" >
+     <span>strawberry milkshake</span>
+     <span>price:5,800</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div><br>
+     </div>
+     <div class="cake-item">
+    <img src="Virgin Pina Colada Recipe.jpg" alt="" >
+    <span> virgin pina colada</span>
+     <span>price:7,500</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+     </div>
+     <div class="cake-item">
+    <img src="This Creamy Avocado Smoothie Is a Delicious Way to Help Your Heart — and Waistline.jpg" alt="" >
+    <span>avocado smoothie</span>
+    <span>price:7,800</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    </div>
+    </div>
+        <script>
+            // check if the page is being reloaded (refreshed)
+            if (performance.getEntriesByType && performance.getEntriesByType("navigation")[0] && performance.getEntriesByType("navigation")[0].type === "reload") {
+                window.location.href = "home.html";
+            }
+
+            // Shared cart logic: store full cart item objects in localStorage and update badges
+            (function(){
+                function getCartItems(){
+                    try { return JSON.parse(localStorage.getItem('cartItems') || '[]'); }
+                    catch(e){ return []; }
+                }
+                function saveCartItems(items){
+                    localStorage.setItem('cartItems', JSON.stringify(items));
+                    var count = items.reduce(function(sum,item){ return sum + item.qty; }, 0);
+                    localStorage.setItem('cartCount', count);
+                    localStorage.setItem('cartTotal', items.reduce(function(sum,item){ return sum + item.price * item.qty; }, 0));
+                }
+                function parsePrice(text){
+                    var digits = (text || '').replace(/[^0-9]/g, '');
+                    return digits ? parseInt(digits, 10) : 0;
+                }
+                function makeItemId(title, price){
+                    return (title || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + price;
+                }
+                function itemDataFromCard(card){
+                    var image = card.querySelector('img');
+                    var title = '';
+                    var priceText = '';
+                    var titleElement = card.querySelector('.card-title, h2, h3, .title, span');
+                    if(titleElement) title = titleElement.textContent.trim();
+                    var priceElement = card.querySelector('.card-price, .price, [class*=price]');
+                    if(priceElement) priceText = priceElement.textContent.trim();
+                    else {
+                        var spans = card.querySelectorAll('span');
+                        if(spans.length){ title = title || spans[0].textContent.trim(); priceText = spans[spans.length-1].textContent.trim(); }
+                    }
+                    var price = parsePrice(priceText);
+                    return { id: makeItemId(title, price), title: title || 'Delicious treat', price: price, image: image ? image.getAttribute('src') : '', qty: 1 };
+                }
+                function updateBadges(){
+                    var count = getCartItems().reduce(function(sum,item){ return sum + item.qty; }, 0);
+                    document.querySelectorAll('.cart-badge').forEach(function(b){ b.textContent = count; });
+                }
+                function addItemToCart(item){
+                    var items = getCartItems();
+                    var existing = items.find(function(entry){ return entry.id === item.id; });
+                    if(existing){ existing.qty += 1; }
+                    else { items.push(item); }
+                    saveCartItems(items);
+                    updateBadges();
+                }
+                function bindOrderButton(btn){
+                    btn.type = 'button';
+                    btn.addEventListener('click', function(){
+                        var card = btn.closest('.cake-item, .pastry-item, .drink-item, .card, article');
+                        if(!card) return;
+                        addItemToCart(itemDataFromCard(card));
+                    });
+                }
+                document.querySelectorAll('.order-btn').forEach(bindOrderButton);
+                document.querySelectorAll('.patry-grid > div').forEach(function(item){
+                    if(!item.querySelector('.order-btn')){
+                        var button = document.createElement('button');
+                        button.className = 'order-btn';
+                        button.textContent = 'Order';
+                        bindOrderButton(button);
+                        item.appendChild(button);
+                    }
+                });
+                updateBadges();
+                window.addEventListener('storage', function(e){ if(e.key === 'cartItems' || e.key === 'cartCount'){ updateBadges(); } });
+            })();
+        </script>
+
+        <script>
+            // interactive ratings script for drinks page
+            (function(){
+                function setStars(container, rating){
+                    var stars = container.querySelectorAll('i');
+                    stars.forEach(function(star, i){ if(i < rating){ star.classList.remove('fa-regular'); star.classList.add('fa-solid'); } else { star.classList.remove('fa-solid'); star.classList.add('fa-regular'); } });
+                }
+                var page = location.pathname.split('/').pop() || 'drinks.html';
+                document.querySelectorAll('.rating').forEach(function(container, idx){
+                    var key = 'rating:' + page + ':' + idx;
+                    var stored = parseInt(localStorage.getItem(key),10) || 0;
+                    setStars(container, stored);
+                    var stars = container.querySelectorAll('i');
+                    stars.forEach(function(star, sidx){
+                        star.addEventListener('click', function(){ var r = sidx+1; localStorage.setItem(key, r); setStars(container, r); });
+                        star.addEventListener('mouseover', function(){ setStars(container, sidx+1); });
+                        star.addEventListener('mouseout', function(){ var cur = parseInt(localStorage.getItem(key),10) || 0; setStars(container, cur); });
+                    });
+                });
+            })();
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart — La Pâtisserie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root { --bg:#fbf5f0; --surface:#ffffff; --text:#3b2c27; --muted:#7a645c; --accent:#b25c4b; --accent-dark:#9f473f; }
+        *{box-sizing:border-box;}
+        body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);}
+        .page{max-width:1100px;margin:0 auto;padding:24px 18px 40px;}
+        .header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;}
+        .header h1{margin:0;font-size:2rem;letter-spacing:-0.03em;}
+        .header .summary{color:var(--muted);font-size:0.96rem;}
+        .button-back{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;border:1px solid rgba(178,92,75,0.2);color:var(--text);text-decoration:none;font-weight:700;transition:background .18s ease,transform .18s ease;}
+        .button-back:hover{background:#fff;transform:translateY(-1px);}
+        .cart-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;}
+        .cart-items{display:grid;gap:18px;}
+        .cart-empty{padding:60px 24px;text-align:center;background:#fff;border-radius:28px;box-shadow:0 24px 55px rgba(0,0,0,0.06);}
+        .cart-item{display:grid;grid-template-columns:120px 1fr auto;gap:16px;padding:18px 20px;border-radius:24px;background:#fff;box-shadow:0 18px 36px rgba(0,0,0,0.05);align-items:center;}
+        .cart-item img{width:120px;height:120px;object-fit:cover;border-radius:20px;}
+        .item-info{display:grid;gap:10px;}
+        .item-title{margin:0;font-size:1rem;font-weight:700;}
+        .item-price{color:var(--accent);font-weight:700;}
+        .quantity-controls{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:18px;background:#fbf0ec;}
+        .quantity-controls button{width:34px;height:34px;border:none;border-radius:12px;background:#fff;color:var(--accent);font-size:1rem;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,0.05);}
+        .quantity-controls span{min-width:28px;text-align:center;font-weight:700;}
+        .remove-btn{border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:0.95rem;}
+        .order-summary{padding:24px 26px;border-radius:28px;background:#fff;box-shadow:0 24px 55px rgba(0,0,0,0.06);display:grid;gap:18px;}
+        .order-summary h2{margin:0;font-size:1.25rem;}
+        .summary-row{display:flex;justify-content:space-between;color:var(--muted);}
+        .summary-total{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;color:var(--text);}
+        .checkout-btn{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:16px 18px;border:none;border-radius:999px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;transition:background .18s ease;}
+        .checkout-btn:hover{background:var(--accent-dark);}
+        @media(max-width:860px){.cart-grid{grid-template-columns:1fr}.cart-item{grid-template-columns:1fr;}.cart-item img{width:100%;height:220px;}.order-summary{padding:20px;}}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div>
+                <h1>Your Cart</h1>
+                <p class="summary">Review items, adjust quantities, and proceed when you’re ready.</p>
+            </div>
+            <a class="button-back" href="home.html"><i class="fas fa-arrow-left"></i>Continue shopping</a>
+        </div>
+        <div class="cart-grid">
+            <div class="cart-items" id="cart-items"></div>
+            <aside class="order-summary">
+                <h2>Order summary</h2>
+                <div class="summary-row"><span>Items</span><span id="cart-count">0</span></div>
+                <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">0</span></div>
+                <div class="summary-row"><span>Delivery</span><span>Free</span></div>
+                <div class="summary-total"><span>Total</span><span id="cart-total">0</span></div>
+                <button class="checkout-btn" id="checkout-btn">Proceed to checkout</button>
+            </aside>
+        </div>
+    </div>
+    <script>
+        function getCartItems(){
+            try { return JSON.parse(localStorage.getItem('cartItems')||'[]'); }
+            catch(e){ return []; }
+        }
+        function saveCartItems(items){
+            localStorage.setItem('cartItems', JSON.stringify(items));
+            localStorage.setItem('cartCount', items.reduce(function(sum,item){ return sum + item.qty; },0));
+            localStorage.setItem('cartTotal', items.reduce(function(sum,item){ return sum + item.price * item.qty; },0));
+            window.dispatchEvent(new Event('cartUpdated'));
+        }
+        function formatPrice(value){ return '₦' + value.toLocaleString(); }
+        function renderCart(){
+            var items = getCartItems();
+            var container = document.getElementById('cart-items');
+            var count = items.reduce(function(sum,item){ return sum + item.qty; },0);
+            var subtotal = items.reduce(function(sum,item){ return sum + item.price * item.qty; },0);
+            document.getElementById('cart-count').textContent = count;
+            document.getElementById('cart-subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('cart-total').textContent = formatPrice(subtotal);
+            container.innerHTML = '';
+            if(!items.length){
+                container.innerHTML = '<div class="cart-empty"><h2>Your cart is empty</h2><p>Tap “Order” on any item to add it here.</p></div>';
+                return;
+            }
+            items.forEach(function(item){
+                var card = document.createElement('div'); card.className = 'cart-item';
+                card.innerHTML = '<img src="'+item.image+'" alt="'+item.title+'">' +
+                    '<div class="item-info"><p class="item-title">'+item.title+'</p><p class="item-price">'+formatPrice(item.price)+'</p><div class="quantity-controls"><button class="qty-decrease" aria-label="Decrease quantity">-</button><span>'+item.qty+'</span><button class="qty-increase" aria-label="Increase quantity">+</button></div></div>' +
+                    '<div><button class="remove-btn">Remove</button></div>';
+                card.querySelector('.qty-increase').addEventListener('click', function(){ updateQty(item.id, item.qty + 1); });
+                card.querySelector('.qty-decrease').addEventListener('click', function(){ updateQty(item.id, item.qty - 1); });
+                card.querySelector('.remove-btn').addEventListener('click', function(){ removeItem(item.id); });
+                container.appendChild(card);
+            });
+        }
+        function updateQty(id, qty){
+            var items = getCartItems();
+            var changed = false;
+            items = items.map(function(item){
+                if(item.id === id){
+                    item.qty = Math.max(0, qty);
+                    changed = true;
+                }
+                return item;
+            }).filter(function(item){ return item.qty > 0; });
+            if(changed){ saveCartItems(items); renderCart(); }
+        }
+        function removeItem(id){
+            var items = getCartItems().filter(function(item){ return item.id !== id; });
+            saveCartItems(items); renderCart();
+        }
+        document.getElementById('checkout-btn').addEventListener('click', function(){
+            if(getCartItems().length) alert('Checkout is not implemented in this demo.');
+            else showEmptyMessage();
+        });
+        function showEmptyMessage(){
+            document.getElementById('cart-items').innerHTML = '<div class="cart-empty"><h2>Your cart is empty</h2><p>Add a few delicious items to continue.</p></div>';
+        }
+        window.addEventListener('storage', function(e){ if(e.key === 'cartItems' || e.key === 'cartCount'){ renderCart(); }});
+        renderCart();
+    </script>
+</body>
+</html>

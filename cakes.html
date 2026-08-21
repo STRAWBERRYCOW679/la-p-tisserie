@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+  :root{ --accent:#b25c4b; --muted:#6b4a3a; }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#f6f1ec;color:#2f2520}
+  .container{max-width:1200px;margin:0 auto;padding:24px}
+  .hero{padding:18px 0}
+  .nav-links{display:flex;align-items:center;gap:12px;padding:0;margin:0;list-style:none}
+  .nav-links h1{margin:0;font-size:1.6rem;color:var(--muted);margin-right:auto}
+  .nav-links li{margin:0}
+  .nav-links a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;border: 1px solid #d7c7b4;background: #fff;}
+  .nav-links a:hover{background:rgba(178,92,75,0.06)}
+  .cart-link{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,0.06);background:#fff}
+  .cart-badge{min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--accent);color:#fff;padding:0 6px;font-weight:700;font-size:0.8rem}
+
+  .cake-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:18px}
+  .cake-item{background:#fff;border-radius:14px;padding:12px;box-shadow:0 8px 20px rgba(45,35,30,0.06);display:flex;flex-direction:column;align-items:center}
+  .cake-item img{width:100%;height:170px;object-fit:cover;border-radius:10px}
+  .cake-item span{display:block;margin-top:8px;text-align:center;color:#3b2f2a}
+  .card-title{font-weight:700;margin-top:8px}
+  .price{color:var(--accent);font-weight:700;margin-top:6px}
+
+  .rating{margin-top:10px;color:#d29434;display:flex;justify-content:center;align-items:center;gap:6px;font-size:1.05rem}
+  .rating i{margin:0}
+  .rating i{cursor:pointer}
+
+  .order-btn{margin-top:12px;padding:10px 16px;border-radius:999px;border:none;background:var(--accent);color:#fff;cursor:pointer;font-weight:700}
+  .order-btn:hover{opacity:0.95}
+
+  @media (max-width:700px){.cake-grid{grid-template-columns:repeat(2,1fr)}.nav-links h1{font-size:1.2rem}}
+</style>
+<body>
+    <div class="container">
+        <div class="hero">
+          <ul class="nav-links">
+              <h1>cakes</h1>
+          <li><a href="recipes.html">recipes</a></li>
+          <li><a href="home.html">home</a></li>
+          <li><a href="pastries.html">pastries</a></li>
+          <li><a href="drinks.html">drinks/smoothies</a></li>
+          <li><a class="cart-link" href="cart.html"><i class="fas fa-shopping-cart"></i>&nbsp;Cart<span class="cart-badge">0</span></a></li>
+        </ul>
+        </div>
+        <div class="cake-grid">
+        <div class="cake-item">
+    <img src="IMG_0376.JPG" alt="" >
+    <span>vanilla cake with bows</span>
+    <span>price:25,000</span>
+      <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake cake-item">
+    <img src="IMG_0377.JPG" alt="" >
+    <span>chocolate cake</span>
+    <span>price:30,000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0379.JPG" alt="" >
+    <span> 2 tiered princess cake</span>
+    <span>price:34,000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0380.JPG" alt="" >
+    <span>stawberry and vanilla flavoured foundant cake</span> 
+    <span>price:31,000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0381.JPG" alt="" >
+    <span> 4 tiered basic cake</span>
+     <span>price:55,000</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+     </div>
+     <div class="cake-item">
+    <img src="IMG_0382.JPG" alt="" >
+    <span>10 tiered 4 flavoured cake</span>
+     <span>price:100,000</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+     </div>
+     <div class="cake-item">
+    <img src="IMG_0383.JPG" alt="" >
+    <span>4 tiered basic cake</span>
+     <span>price:65,000</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+     </div>
+     <div class="cake-item">
+    <img src="IMG_0386.JPG" alt="" >
+    <span>7 tiered 3 flavored cake</span>
+     <span>price:70,000</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+     </div>
+    <div class="cake-item">
+    <img src="IMG_0387.JPG" alt="" >
+     <span>2 in 1 chocolate and redvelvet cake</span>
+     <span>price:5,800</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div><br>
+     </div>
+     <div class="cake-item">
+    <img src="IMG_0388.JPG" alt="" >
+    <span> redvelvet and whipped cream cake</span>
+     <span>price:7,500</span>
+     <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+     </div>
+     <div class="cake-item">
+    <img src="IMG_0389.JPG" alt="" >
+    <span>2 in 1, 3 flavored icecream cake</span>
+    <span>price:7,800</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0391.JPG" alt="" >
+    <span>vannila and strawberry cake</span>
+    <span>price:6,800</span><br>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0393.JPG" alt="" >
+    <span>mini heart cake</span>
+    <span>price:4,800</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0394.JPG" alt="" >
+    <span>mini mother's day cake</span>
+    <span>price:6000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0395.JPG" alt="" >
+    <span>cute 8 box minicakes</span>
+    <span>price:10,800</span>
+  <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    <div class="cake-item">
+    <img src="IMG_0396.JPG" alt="" >
+    <span>cute winter themed minicakes</span>
+    <span>price:5,000</span>
+    <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div><br>
+    </div>
+    </div>
+    </div>
+    <script>
+      // redirect on full page reload back to home (optional)
+      if (performance.getEntriesByType && performance.getEntriesByType("navigation")[0] && performance.getEntriesByType("navigation")[0].type === "reload") {
+        window.location.href = "home.html";
+      }
+
+      // Shared cart logic: store full cart item objects in localStorage and update badges
+      (function(){
+        function getCartItems(){
+          try { return JSON.parse(localStorage.getItem('cartItems') || '[]'); }
+          catch(e){ return []; }
+        }
+        function saveCartItems(items){
+          localStorage.setItem('cartItems', JSON.stringify(items));
+          var count = items.reduce(function(sum,item){ return sum + item.qty; }, 0);
+          localStorage.setItem('cartCount', count);
+          localStorage.setItem('cartTotal', items.reduce(function(sum,item){ return sum + item.price * item.qty; }, 0));
+        }
+        function parsePrice(text){
+          var digits = (text || '').replace(/[^0-9]/g, '');
+          return digits ? parseInt(digits, 10) : 0;
+        }
+        function makeItemId(title, price){
+          return (title || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + price;
+        }
+        function itemDataFromCard(card){
+          var image = card.querySelector('img');
+          var title = '';
+          var priceText = '';
+          var titleElement = card.querySelector('.card-title, h2, h3, .title, span');
+          if(titleElement) title = titleElement.textContent.trim();
+          var priceElement = card.querySelector('.card-price, .price, [class*=price]');
+          if(priceElement) priceText = priceElement.textContent.trim();
+          else {
+            var spans = card.querySelectorAll('span');
+            if(spans.length){ title = title || spans[0].textContent.trim(); priceText = spans[spans.length-1].textContent.trim(); }
+          }
+          var price = parsePrice(priceText);
+          return { id: makeItemId(title, price), title: title || 'Delicious treat', price: price, image: image ? image.getAttribute('src') : '', qty: 1 };
+        }
+        function updateBadges(){
+          var count = getCartItems().reduce(function(sum,item){ return sum + item.qty; }, 0);
+          document.querySelectorAll('.cart-badge').forEach(function(b){ b.textContent = count; });
+        }
+        function addItemToCart(item){
+          var items = getCartItems();
+          var existing = items.find(function(entry){ return entry.id === item.id; });
+          if(existing){ existing.qty += 1; }
+          else { items.push(item); }
+          saveCartItems(items);
+          updateBadges();
+        }
+        function bindOrderButton(btn){
+          btn.type = 'button';
+          btn.addEventListener('click', function(){
+            var card = btn.closest('.cake-item, .pastry-item, .drink-item, .card, article');
+            if(!card) return;
+            addItemToCart(itemDataFromCard(card));
+          });
+        }
+        document.querySelectorAll('.order-btn').forEach(bindOrderButton);
+        document.querySelectorAll('.cake-grid > div').forEach(function(item){
+          if(!item.querySelector('.order-btn')){
+            var btn = document.createElement('button');
+            btn.className = 'order-btn';
+            btn.textContent = 'Order';
+            bindOrderButton(btn);
+            item.appendChild(btn);
+          }
+        });
+        updateBadges();
+        window.addEventListener('storage', function(e){ if(e.key === 'cartItems' || e.key === 'cartCount'){ updateBadges(); } });
+      })();
+    </script>
+
+    <script>
+      // interactive ratings for cakes
+      (function(){
+        function setStars(container, rating){ container.querySelectorAll('i').forEach(function(star,i){ if(i<rating){ star.classList.remove('fa-regular'); star.classList.add('fa-solid'); } else { star.classList.remove('fa-solid'); star.classList.add('fa-regular'); } }); }
+        var page = location.pathname.split('/').pop() || 'cakes.html';
+        document.querySelectorAll('.rating').forEach(function(container, idx){
+          var key = 'rating:'+page+':'+idx; var stored=parseInt(localStorage.getItem(key),10)||0; setStars(container, stored);
+          container.querySelectorAll('i').forEach(function(star,sidx){ star.addEventListener('click', function(){ localStorage.setItem(key, sidx+1); setStars(container, sidx+1); }); star.addEventListener('mouseover', function(){ setStars(container, sidx+1); }); star.addEventListener('mouseout', function(){ setStars(container, parseInt(localStorage.getItem(key),10)||0); }); });
+        });
+      })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile — La Pâtisserie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #fbf5ef;
+            --surface: #ffffff;
+            --text: #3c2f29;
+            --muted: #7a5d53;
+            --accent: #b25c4b;
+            --shadow: 0 24px 60px rgba(0,0,0,0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 18px 40px;
+        }
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .topbar h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: -0.04em;
+        }
+        .topbar a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .profile-card {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 0;
+            background: var(--surface);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .profile-side {
+            padding: 34px 28px;
+            background: linear-gradient(180deg, #fff5f0 0%, #fbf2ef 100%);
+            text-align: center;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 7px solid #fff;
+            box-shadow: 0 30px 60px rgba(178, 92, 75, 0.16);
+            margin-bottom: 20px;
+        }
+        .username {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .handle {
+            margin: 8px 0 0;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+        .profile-main {
+            padding: 34px 32px;
+            display: grid;
+            gap: 26px;
+        }
+        .section-title {
+            margin: 0 0 12px;
+            font-size: 0.86rem;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        .info-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 14px;
+            padding: 18px 20px;
+            align-items: center;
+            background: #fff6f1;
+            border-radius: 22px;
+            box-shadow: inset 0 0 0 1px rgba(178,92,75,0.08);
+        }
+        .info-row i {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 1rem;
+        }
+        .info-text {
+            display: grid;
+            gap: 4px;
+        }
+        .info-text strong {
+            font-size: 1rem;
+        }
+        .info-text span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        .contact-card {
+            border-radius: 28px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: inset 0 0 0 1px rgba(178,92,75,0.08);
+        }
+        .contact-card img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            min-height: 224px;
+        }
+        .contact-details {
+            padding: 22px 24px;
+            display: grid;
+            gap: 16px;
+        }
+        .contact-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .contact-number i {
+            color: var(--accent);
+        }
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .contact-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.18s ease, background 0.18s ease;
+        }
+        .contact-actions a:hover {
+            transform: translateY(-1px);
+            background: #9f4b3e;
+        }
+        @media (max-width: 860px) {
+            .profile-card {
+                grid-template-columns: 1fr;
+            }
+            .profile-side,
+            .profile-main {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="topbar">
+            <div>
+                <h1>Profile</h1>
+                <p style="margin: 8px 0 0; color: var(--muted);">Your baking account and contact details.</p>
+            </div>
+            <a href="home.html"><i class="fas fa-arrow-left"></i> Back to shop</a>
+        </div>
+        <div class="profile-card">
+            <div class="profile-side">
+                <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="Profile picture">
+                <h2 class="username">Maya Dubois</h2>
+                <p class="handle">@maya.patisserie</p>
+            </div>
+            <div class="profile-main">
+                <div>
+                    <p class="section-title">Account details</p>
+                    <div class="info-row">
+                        <i class="fas fa-user"></i>
+                        <div class="info-text">
+                            <strong>Username</strong>
+                            <span>maya.dubois</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-text">
+                            <strong>Email</strong>
+                            <span>maya@lapatisserie.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=80" alt="Contact support">
+                    <div class="contact-details">
+                        <p class="section-title">Contact us</p>
+                        <div class="contact-number"><i class="fas fa-phone-alt"></i><span>+33 1 23 45 67 89</span></div>
+                        <p style="margin:0; color: var(--muted);">Need help with an order or a delivery? Reach out any time and we’ll be happy to assist.</p>
+                        <div class="contact-actions">
+                            <a href="tel:+33123456789"><i class="fas fa-phone"></i> Call Now</a>
+                            <a href="mailto:support@lapatisserie.com"><i class="fas fa-envelope"></i> Email Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
